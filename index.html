@@ -10,16 +10,16 @@
 </head>
 <body>
     <header>
-      <nav>
-        <a href="#Playlist">   | Playlist  </a>
-        <a href="#projet"> | Le projet </a>
-        <a href="#liens">| Les liens </a> 
+      <nav id="top-navbar">
+        <a class="nav-li" href="#"> | Playlist  </a>
+        <a class="nav-li" href="#projet">   | Le projet </a>
+        <a class="nav-li" href="#liens">    | Les liens </a> 
      </nav>
         <h1 id="yap">Une playlist, une semaine.</h1>
     </header>
-
+    <br></br>
     <main>
-      <section id="Playlist">
+      <section>
         <div class="container">
           <div class="music-container" id="music-container">
               <div class="playe" id="player">
@@ -71,12 +71,17 @@
         </p>
         <br></br>
         <ul>
-          <li><a href="https://soundcloud.com/user-388226531">yaperson</a></li>
+          <li><a class="liens-artistes" href="https://soundcloud.com/user-388226531">yaperson</a></li>
         </ul>
       </section>
     </main>
-
-
+    <footer>
+      <nav id="footer-navbar">
+        <a class="nav-fo" href="#">         | Playlist  </a>
+        <a class="nav-fo" href="#projet">   | Le projet </a>
+        <a class="nav-fo" href="#liens">    | Les liens </a> 
+     </nav>
+    </footer>
     <script src="./assets/js/vue.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

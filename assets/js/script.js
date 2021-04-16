@@ -15,7 +15,7 @@ const volContainer = document.getElementById('vol-container');
 const volProgress = document.getElementById('vol-progress');
 
 // Titres présents dans la liste de lecture
-const songs = ['2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson'];
+const songs = ['2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
 
 // Variable
 let songIndex = 0;
@@ -123,7 +123,7 @@ function updateProgressBar(e){
   const {duration, currentTime} = e.target;
   const progressPersent = (currentTime / duration) * 100; // calcul de la progression
   progress.style.width = `${progressPersent}%`;
-  console.log( e.target); // e.targer recupere le son et le console.log l'affiche dans la console 
+  //console.log( e.target); // e.targer recupere le son et le console.log l'affiche dans la console 
 }
 // Met a jour la bar en fonction du click 
 function setProgress(e){
@@ -188,7 +188,7 @@ function playLoop(){
   if (islooping){ nextSong();}
   else if(songIndex >= songs.length -1 && islooping){
     nextSong();
-    console.log('test');
+    //console.log('test');
   }
   
   else {

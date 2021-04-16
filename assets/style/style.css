@@ -16,6 +16,9 @@ body {
   overflow-x: hidden;
 
 }
+html{
+  scroll-behavior: smooth;
+}
 #yap{
   font-family: 'Monoton', cursive;
   padding: 6rem 0 0 2.4rem;
@@ -23,11 +26,12 @@ body {
   animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
-a,
-a:visited {
+.nav-li,
+.nav-li:visited {
   color: rgb(190, 189, 189);
   text-decoration: unset;
   font-size: 136%;
+
 }
 
 button {
@@ -37,8 +41,9 @@ button {
   cursor: pointer;
 }
 
-nav {
+#top-navbar {
   padding: 0.8rem 2.4rem;
+  font-size: 136%;
   text-decoration: unset;
   background-color: rgb(41, 41, 41);
   color: rgb(194, 194, 194);
@@ -57,6 +62,23 @@ nav {
   padding: 15px;
   background-color: rgb(41, 41, 41);
 }
+.liens-artistes, .liens-artistes:visited {
+  color: rgb(236, 236, 236);
+  text-decoration: unset;
+}
+#footer-navbar {
+  background-color: rgb(20, 20, 20);
+  bottom: 0;
+  width: 100%;
+  color: rgb(119, 119, 119);
+  padding: 15px;
+  text-align: center;
+}
+
+.nav-fo{
+  color: rgb(119, 119, 119); 
+}
+
   /****************************/
  /*      lecteur audio       */
 /****************************/
@@ -76,7 +98,6 @@ nav {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
   display: flex;
 }
 /*
@@ -90,15 +111,16 @@ nav {
 */
 .progress-container {
   background: rgb(26, 26, 26);
-  height: 4px;
+  height: 6px;
   width: 80%;
   border: 1px solid #000;
   cursor: pointer;
   margin: auto;
+  border-radius: 5%;
 }
 .vol-container {
   background: rgb(26, 26, 26);
-  height: 4px;
+  height: 6px;
   width: 30%;
   border: 1px solid #000;
   cursor: pointer;
@@ -109,10 +131,12 @@ nav {
 }
 .progress, .vol-progress{
 
-  background: white;
+  background: rgb(255, 255, 255);
   height: 100%;
   width: 60%;
   transition: width .1s linear;
+  border-radius: 5%;
+  animation: neon2 1.5s;
 }
 .player-controls{
   justify-content: center;
