@@ -6,86 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
     <link href="./assets/style/style.css" rel="stylesheet" />
-    <title>Musique-Web</title>
+    <title>Une playlist, une semaine.</title>
 </head>
 <body>
-    <div id="app">
     <header>
-        <nav>
-           <a href="#menu">menu</a>
-           <a href="#projet">projet</a>
-           <a href="#musique">musique</a> 
-        </nav>
-        <nav>
-            <div class="nav-container">
-              <div id="logo">
-                <router-link to="/">
-                  <img src="./assets/img/wish-logo-800.png" alt="logo" />
-                </router-link>
-              </div>
-      
-              <ul id="icons">
-                <li>
-                  <router-link to="/projet">
-                    <i class="fas fa-user"></i>
-                  </router-link>
-                </li>
-                <li>
-                  <router-link to="/musique">
-                    <i class="fas fa-heart"></i>
-                    <span id="nav-not"></span>
-                  </router-link>
-                </li>
-                <li>
-                  <router-link to="/User">
-                    <i class="fas fa-user"></i>
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        <h1>Test-Musique Web</h1>
+      <nav>
+        <a href="#Playlist">   | Playlist  </a>
+        <a href="#projet"> | Le projet </a>
+        <a href="#liens">| Les liens </a> 
+     </nav>
+        <h1>Une playlist, une semaine.</h1>
     </header>
-    <router-view></router-view>
 
-    <div class="container">
-        <div class="music-container" id="music-container">
-            <div class="playe" id="player">
-                <div class="music-info">
-                    <h4 id="title"> Yaperson-Lof1 </h4>
-                </div>
-                <div class="img-container">
-                    <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="cover">
-                </div>
-                <div class="player-controls">
-                    <button id="prev"><i class="fas fa-backward"></i></button>
-                    <button id="play"><i class="fas fa-play">    </i></button>
-                    <button id="next"><i class="fas fa-forward"> </i></button>
-                    <button id="stop"><i class="fas fa-stop">    </i></button>
-                    <button id="loop" class="loop"><i class="fas fa-redo"></i></button>
-                </div>
-
-                <div class="progress-container" id="progress-container">
-                    <div class="progress" id="progress"></div>
-                </div>
-
-                <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
-
-                <div class="vol-bar" id="vol-bar">
-                    <button id="vol-down"><i class="fas fa-volume-down"></i></button>
-                    <button id="vol-up"><i class="fas fa-volume-up"></i></button>
-                    <div class="vol-container" id="vol-container">
-                        <div class="vol-progress" id="vol-progress"></div>
-                    </div>
-                </div>
-            </div>
+    <main>
+      <section id="Playlist">
+        <div class="container">
+          <div class="music-container" id="music-container">
+              <div class="playe" id="player">
+                  <div class="music-info">
+                      <h4 id="title"> Yaperson-Lof1 </h4>
+                  </div>
+                  <div class="img-container">
+                      <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="cover">
+                  </div>
+                  <div class="player-controls">
+                      <button id="prev"><i class="fas fa-backward"></i></button>
+                      <button id="play"><i class="fas fa-play">    </i></button>
+                      <button id="next"><i class="fas fa-forward"> </i></button>
+                      <button id="stop"><i class="fas fa-stop">    </i></button>
+                      <button id="loop" class="loop"><i class="fas fa-redo"></i></button>
+                  </div>
+  
+                  <div class="progress-container" id="progress-container">
+                      <div class="progress" id="progress"></div>
+                  </div>
+  
+                  <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
+  
+                  <div class="vol-bar" id="vol-bar">
+                      <button id="vol-down"><i class="fas fa-volume-down"></i></button>
+                      <button id="vol-up"><i class="fas fa-volume-up"></i></button>
+                      <div class="vol-container" id="vol-container">
+                          <div class="vol-progress" id="vol-progress"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
-    </div>
+      </section>
+      <section id="projet">
+        <h2>Le projet</h2>
+        <br></br>
+        <p>
+          Salut et bienvenue sur "Une playlist, une semaine". <br></br>
+          Le principe est dans le titre, chaque semaine des titres différents dans la playlist.
+          Ce n'est qu'un test et le projet est encore en développement, bonne écoute !
+        </p>
+      </section>
+      <section id="liens">
+        <h2>Cette semaine :</h2>
+        
+      </section>
+    </main>
 
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    <script src="https://unpkg.com/vue-cookies@1.7.4/vue-cookies.js"></script>
+
     <script src="./assets/js/vue.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
