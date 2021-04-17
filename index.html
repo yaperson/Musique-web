@@ -2,10 +2,17 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="chaque semaine des titres différents dans la playlist">
+    <link rel="icon" href="assets/icons/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
     <link href="./assets/style/style.css" rel="stylesheet" />
+    <!--        PWA         -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="black">
+    <meta name="apple-mobile-web-app-status-bar" content="white">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-96.png">
     <title>Une playlist, une semaine.</title>
 </head>
 <body>
@@ -13,7 +20,10 @@
       <nav id="top-navbar">
         <a class="nav-li" href="#"> | Playlist  </a>
         <a class="nav-li" href="#projet">   | Le projet </a>
-        <a class="nav-li" href="#liens">    | Les liens </a> 
+        <a class="nav-li" href="#liens">    | Les liens </a>
+        <a href="javascript:void(0);" class="icon" onclick="respNav()">
+          <i class="fa fa-bars"></i>
+        </a> 
      </nav>
         <h1 id="yap">Une playlist, une semaine.</h1>
     </header>
@@ -80,9 +90,23 @@
         <a class="nav-fo" href="#">         | Playlist  </a>
         <a class="nav-fo" href="#projet">   | Le projet </a>
         <a class="nav-fo" href="#liens">    | Les liens </a> 
+        <a class="nav-fo" href="https://yanislegrand.000webhostapp.com/index.html">| Mon portfolio </a> 
      </nav>
     </footer>
-    <script src="./assets/js/vue.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="app.js"></script>
+    <script>
+      // Responsive Nav
+
+    function respNav(){
+      var x = document.getElementById("top-navbar");
+      if (x.className === "top-navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "top-navbar";
+      }
+    }
+  </script>
+    
 </body>
 </html>

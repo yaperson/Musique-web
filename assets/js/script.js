@@ -201,3 +201,5 @@ function playLoop(){
 function audioError(){
   title.innerText = "Erreur lors du chargement";
 }
+
+
