@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="chaque semaine des titres différents dans la playlist">
+    <link rel="icon" href="assets/icons/icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <link href="./assets/style/style.css" rel="stylesheet" />
+    <!--        PWA         -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="black">
+    <meta name="apple-mobile-web-app-status-bar" content="white">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-96.png">
+    <title>Une playlist, une semaine.</title>
+</head>
+<body>
+    <header>
+      <nav id="top-navbar">
+        <a class="nav-li" href="#"> | Playlist  </a>
+        <a class="nav-li" href="#projet">   | Le projet </a>
+        <a class="nav-li" href="#liens">    | Les liens </a>
+     </nav>
+        <h1 id="yap">Une playlist, une semaine.</h1>
+    </header>
+    <br></br>
+    <main>
+      <section>
+        <div class="container">
+          <div class="music-container" id="music-container">
+              <div class="playe" id="player">
+                  <div class="music-info">
+                      <h4 id="title"> Yaperson-Lof1 </h4>
+                  </div>
+                  <div class="img-container">
+                      <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="cover">
+                  </div>
+                  <div class="player-controls">
+                      <button id="prev"><i class="fas fa-backward"></i></button>
+                      <button id="play"><i class="fas fa-play">    </i></button>
+                      <button id="next"><i class="fas fa-forward"> </i></button>
+                      <button id="stop"><i class="fas fa-stop">    </i></button>
+                      <button id="loop" class="loop"><i class="fas fa-redo"></i></button>
+                  </div>
+  
+                  <div class="progress-container" id="progress-container">
+                      <div class="progress" id="progress"></div>
+                  </div>
+                  <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
+                  <div class="vol-bar" id="vol-bar">
+                      <button id="vol-down"><i class="fas fa-volume-down"></i></button>
+                      <button id="vol-up"><i class="fas fa-volume-up"></i></button>
+                      <div class="vol-container" id="vol-container">
+                          <div class="vol-progress" id="vol-progress"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      <section id="projet">
+        <h2>Le projet</h2>
+        <br></br>
+        <p>
+          Salut et bienvenue sur "Une playlist, une semaine". <br></br>
+          Le principe est dans le titre, chaque semaine des titres différents dans la playlist.
+          Ce n'est qu'un test et le projet est encore en développement, bonne écoute !
+        </p>
+            <!-- Install button, hidden by default -->
+        <div id="installContainer" class="hidden">
+          <button id="butInstall" type="button">
+            Install
+          </button>
+        </div>
+      </section>
+      <section id="liens">
+        <h2>Cette semaine :</h2>
+        <br></br>
+        <p>
+          pour l'instant, il n'y a que moi, car... c'est moi qui développe.
+        </p>
+        <br></br>
+        <ul>
+          <li><a class="liens-artistes" href="https://soundcloud.com/user-388226531">yaperson</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <nav id="footer-navbar">
+        <a class="nav-fo" href="#">         | Playlist  </a>
+        <a class="nav-fo" href="#projet">   | Le projet </a>
+        <a class="nav-fo" href="#liens">    | Les liens </a> 
+        <a class="nav-fo" href="https://yanislegrand.000webhostapp.com/index.html">| Mon portfolio </a> 
+     </nav>
+    </footer>
+        
+    <script src="./assets/js/script.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+    "name": "Une playlist, une semaine",
+    "short_name":"La playlist",
+    "start_url": "/musique/",
+    "display": "standalone",
+    "scope": "/musique/",
+    "background_color":"white",
+    "theme_color":"white",
+    "orientation":"portrait-primary",
+    "icons":[
+        {
+            "src":"/assets/icons/icon-192.png",
+            "type":"image/png",
+            "sizes":"192x192"
+        },
+        {
+            "src":"/assets/icons/icon-192.png",
+            "type":"image/png",
+            "sizes":"192x192",
+            "purpose":"any maskable"
+        },
+        {
+            "src":"/assets/icons/icon-512.png",
+            "type":"image/png",
+            "sizes":"512x512"
+        }
+
+    ]
+}
