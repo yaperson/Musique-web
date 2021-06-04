@@ -25,7 +25,11 @@ html{
   color: rgb(0, 0, 0);
   animation: neon2 1.5s ease-in-out infinite alternate;
 }
-
+@media screen  and (max-width: 600px) {
+  #yap{
+  animation: none;
+  }
+}
 .nav-li,
 .nav-li:visited {
   color: rgb(190, 189, 189);
@@ -33,9 +37,7 @@ html{
   font-size: 136%;
 
 }
-.icon{
-  display: none;
-}
+
 #top-navbar {
   padding: 0.8rem 2.4rem;
   font-size: 136%;
@@ -49,28 +51,25 @@ html{
 }
 
 @media screen  and (max-width: 600px) {
-  #top-navbar .nav-li:not(:first-child) {display: none;}
-  #top-navbar .icon {
-    float: right;
-    display: block;
+  #top-navbar  {
+    font-size: 15px;
   }
 }
+/*
 @media screen and (max-width: 600px) {
-  #top-navbar.responsive {position: relative;}
-  #top-navbar.responsive .icon {
+  #top-navbar {
     position: absolute;
     right: 0;
     top: 0;
   }
-  #top-navbar.responsive .nav-li {
+  #top-navbar .nav-li {
     float: none;
     display: block;
-    text-align: left;
     right: 0;
     top: 0;
   }
 }
-
+*/
 button {
   border: none;
   background: none;
@@ -107,6 +106,7 @@ button {
   /****************************/
  /*      lecteur audio       */
 /****************************/
+
 .container{
 
   line-height: 1.6;
@@ -171,8 +171,18 @@ button {
 }
 
 
-
-
+@media screen and (max-width: 600px) {
+  i{
+    font-size: 20px;
+    padding: 3px;
+  }
+  .player-controls{
+    padding-left: 20%;
+    padding-right: 20%;
+    justify-content: center;
+    align-items: center;
+  }
+}
 /******         Animations         *******/
  
 @keyframes neon2 {
@@ -182,4 +192,23 @@ button {
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
   }
+}
+
+/*** PWA ***/
+.hidden {
+  display: none !important;
+}
+
+#installContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+#installContainer button {
+  background-color: inherit;
+  border: 1px solid white;
+  color: white;
+  font-size: 1em;
+  padding: 0.75em;
 }

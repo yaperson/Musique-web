@@ -1,66 +1,52 @@
-const staticCacheName = "cache-v2";
-const assets = [
-    "/",
-    "/index.html",
-    "/assets/icons/icon.ico",
-    "/assets/icons/icon-512.ico"
-]
-// Mise en cache
+const CACHE_NAME = 'offline';
+const OFFLINE_URL = '/musique/offline.html';
 
-self.addEventListener('install', (e) => {
-    //console.log("serviceWorker installer");
-    e.waitUntil(
-        caches.open(staticCacheName).then((caches) =>{
-            caches.addAll(assets)
-        })
-    )
+self.addEventListener('install', function(event) {
+  console.log('[ServiceWorker] Install');
+  
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    // Setting {cache: 'reload'} in the new request will ensure that the response
+    // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
+    await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
+  })());
+  
+  self.skipWaiting();
 });
 
-self.addEventListener('fetch', (event)=>{
-    //console.log(event.request);
-    event.respondWith(
-        caches.match(event.request)
-          .then(function(response) {
-            // Cache hit - return response
-            if (response) {
-              return response;
-            }
-    
-            // IMPORTANT: Cloner la requête.
-            // Une requete est un flux et est à consommation unique
-            // Il est donc nécessaire de copier la requete pour pouvoir l'utiliser et la servir
-            var fetchRequest = event.request.clone();
-    
-            return fetch(fetchRequest).then(
-              function(response) {
-                if (!response || response.status !== 200 || response.type !== 'basic') {
-                  return response;
-                }
-    
-                // IMPORTANT: Même constat qu'au dessus, mais pour la mettre en cache
-                var responseToCache = response.clone();
-    
-                caches.open(staticCacheName)
-                  .then(function(cache) {
-                    cache.put(event.request, responseToCache);
-                  });
-    
-                return response;
-              }
-            );
-        })
-    );
+self.addEventListener('activate', (event) => {
+  console.log('[ServiceWorker] Activate');
+  event.waitUntil((async () => {
+    // Enable navigation preload if it's supported.
+    // See https://developers.google.com/web/updates/2017/02/navigation-preload
+    if ('navigationPreload' in self.registration) {
+      await self.registration.navigationPreload.enable();
+    }
+  })());
+
+  // Tell the active service worker to take control of the page immediately.
+  self.clients.claim();
 });
 
-// Supprimer caches
-self.addEventListener('activate', (e) => {
-    e.waitUntil(
-        caches.keys().then((keys) => {
-            return Promise.add(
-                keys
-                .filter((key) => key !== staticCacheName)
-                .map((key) => caches.delete(key))
-            );
-        })
-    );
+self.addEventListener('fetch', function(event) {
+  // console.log('[Service Worker] Fetch', event.request.url);
+  if (event.request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const preloadResponse = await event.preloadResponse;
+        if (preloadResponse) {
+          return preloadResponse;
+        }
+
+        const networkResponse = await fetch(event.request);
+        return networkResponse;
+      } catch (error) {
+        console.log('[Service Worker] Fetch failed; returning offline page instead.', error);
+
+        const cache = await caches.open(CACHE_NAME);
+        const cachedResponse = await cache.match(OFFLINE_URL);
+        return cachedResponse;
+      }
+    })());
+  }
 });
