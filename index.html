@@ -1,101 +1,191 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="chaque semaine des titres différents dans la playlist">
-    <link rel="icon" href="assets/icons/icon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
-    <link href="./assets/style/style.css" rel="stylesheet" />
-    <!--        PWA         -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="black">
-    <meta name="apple-mobile-web-app-status-bar" content="white">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="/assets/icons/icon-96.png">
-    <title>Une playlist, une semaine.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="chaque semaine des titres différents dans la playlist">
+  <link rel="icon" href="assets/icons/icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+  <link href="./assets/style/style.css" rel="stylesheet" />
+  <!-- Analitics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  <!--        PWA         -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="black">
+  <meta name="apple-mobile-web-app-status-bar" content="white">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="/assets/icons/icon-96.png">
+  <title>Une playlist, une semaine.</title>
 </head>
+
 <body>
-    <header>
-      <nav id="top-navbar">
-        <a class="nav-li" href="#"> | Playlist  </a>
-        <a class="nav-li" href="#projet">   | Le projet </a>
-        <a class="nav-li" href="#liens">    | Les liens </a>
-     </nav>
-        <h1 id="yap">Une playlist, une semaine.</h1>
-    </header>
-    <br></br>
-    <main>
-      <section>
-        <div class="container">
-          <div class="music-container" id="music-container">
-              <div class="playe" id="player">
-                  <div class="music-info">
-                      <h4 id="title"> Yaperson-Lof1 </h4>
-                  </div>
-                  <div class="img-container">
-                      <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="cover">
-                  </div>
-                  <div class="player-controls">
-                      <button id="prev"><i class="fas fa-backward"></i></button>
-                      <button id="play"><i class="fas fa-play">    </i></button>
-                      <button id="next"><i class="fas fa-forward"> </i></button>
-                      <button id="stop"><i class="fas fa-stop">    </i></button>
-                      <button id="loop" class="loop"><i class="fas fa-redo"></i></button>
-                  </div>
-  
-                  <div class="progress-container" id="progress-container">
-                      <div class="progress" id="progress"></div>
-                  </div>
-                  <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
-                  <div class="vol-bar" id="vol-bar">
-                      <button id="vol-down"><i class="fas fa-volume-down"></i></button>
-                      <button id="vol-up"><i class="fas fa-volume-up"></i></button>
-                      <div class="vol-container" id="vol-container">
-                          <div class="vol-progress" id="vol-progress"></div>
-                      </div>
-                  </div>
-              </div>
+  <header>
+    <nav id="top-navbar">
+      <a class="nav-li" href="#"> | Playlist </a>
+      <a class="nav-li" href="#projet"> | Le projet </a>
+      <a class="nav-li" href="#liens"> | Les liens </a>
+      <h1 id="yap" class="on">WeekSong</h1>
+    </nav>
+  </header>
+  <br></br>
+  <main>
+    <section>
+      <div class="container" id="container">
+
+        <div id="past-music">
+          <div class="music-info">
+            <h4 id="PastTitle"> Yaperson-Lof1 </h4>
+          </div>
+          <img src="./assets/img/2-yaperson.jpg" alt="PastCover yaperson" id="PastCover">
+        </div>
+
+        <div id="music-container">
+          <div class="playe" id="player">
+            <div class="music-info">
+              <h4 id="title"> Yaperson-Lof1 </h4>
+            </div>
+            <div class="img-container">
+              <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="cover">
+            </div>
+            <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
           </div>
         </div>
-      </section>
-      <section id="projet">
-        <h2>Le projet</h2>
-        <br></br>
-        <p>
-          Salut et bienvenue sur "Une playlist, une semaine". <br></br>
-          Le principe est dans le titre, chaque semaine des titres différents dans la playlist.
-          Ce n'est qu'un test et le projet est encore en développement, bonne écoute !
-        </p>
-            <!-- Install button, hidden by default -->
-        <div id="installContainer" class="hidden">
-          <button id="butInstall" type="button">
-            Install
-          </button>
+
+        <div id="futur-music">
+          <div class="music-info">
+            <h4 id="FutureTitle"> Yaperson-Lof1 </h4>
+          </div>
+          <img src="./assets/img/2-yaperson.jpg" alt="FutureCover yaperson" id="FutureCover">
         </div>
-      </section>
-      <section id="liens">
-        <h2>Cette semaine :</h2>
-        <br></br>
-        <p>
-          pour l'instant, il n'y a que moi, car... c'est moi qui développe.
-        </p>
-        <br></br>
-        <ul>
-          <li><a class="liens-artistes" href="https://soundcloud.com/user-388226531">yaperson</a></li>
-        </ul>
-      </section>
-    </main>
-    <footer>
-      <nav id="footer-navbar">
-        <a class="nav-fo" href="#">         | Playlist  </a>
-        <a class="nav-fo" href="#projet">   | Le projet </a>
-        <a class="nav-fo" href="#liens">    | Les liens </a> 
-        <a class="nav-fo" href="https://yanislegrand.000webhostapp.com/index.html">| Mon portfolio </a> 
-     </nav>
-    </footer>
-        
-    <script src="./assets/js/script.js" type="text/javascript"></script>
-    <script src="app.js" type="text/javascript"></script>
+
+        <div class="control-panel">
+          <div class="music-part">
+            <div id="preview-container" class="Mcontainer2">
+              <div class="music-info-preview">
+                <h4 id="previewTitle"> Yaperson-Lof1 </h4>
+              </div>
+              <div class="img-container-preview">
+                <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="previewCover" >
+              </div>
+            </div>
+
+            <div class="bar-container">
+              <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+              </div>
+            </div>
+
+            <div class="player-controls">
+              <button class="player-button" id="stop"><i class="fas fa-stop"> </i></button>
+              <button class="player-button" id="prev"><i class="fas fa-backward"></i></button>
+              <button class="player-button" id="play"><i class="fas fa-play"> </i></button>
+              <button class="player-button" id="next"><i class="fas fa-forward"> </i></button>
+              <button class="player-button" id="loop" class="loop"><i class="fas fa-redo"></i></button>
+            </div>
+
+            <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
+          </div>
+          <!-- <div class="vol-bar" id="vol-bar">
+            <button id="vol-down"><i class="fas fa-volume-down"></i></button>
+            <div class="vol-container" id="vol-container">
+              <div class="vol-progress" id="vol-progress"></div>
+            </div>
+            <button id="vol-up"><i class="fas fa-volume-up"></i></button>
+          </div> -->
+          <div class="param-container">
+
+            <!-- Install button, hidden by default -->
+            <div id="installContainer" class="hidden">
+              <button id="butInstall" type="button">
+                Installer
+              </button>
+            </div>
+            <button id="notifications">Activer les notifications</button>
+            <button class="" id="toggleNeon" onclick="NeonState()"> Titre néon </button>
+          </div>
+    </section>
+    <section id="liens">
+      <h2>Cette semaine :</h2>
+      <br></br>
+      <p>
+        pour l'instant, il n'y a que moi, car... c'est moi qui développe.
+      </p>
+      <br></br>
+      <ul>
+        <li><a class="liens-artistes" href="https://soundcloud.com/user-388226531">yaperson</a></li>
+      </ul>
+      </div>
+
+      </div>
+      </div>
+    </section>
+    <section id="projet">
+      <h2>Le projet</h2>
+      <br></br>
+      <p>
+        Salut et bienvenue sur "WeekSong". <br></br>
+        Le principe est dans le titre, chaque semaine des titres différents dans la playlist.
+        Ce n'est qu'un test et le projet est encore en développement, bonne écoute !
+      </p>
+    </section>
+  </main>
+  <footer>
+    <nav id="footer-navbar">
+      <a class="nav-fo" href="#"> | Playlist </a>
+      <a class="nav-fo" href="#projet"> | Le projet </a>
+      <a class="nav-fo" href="#liens"> | Les liens </a>
+      <a class="nav-fo" href="https://yanis-projet.alwaysdata.net/">| Mon portfolio </a>
+    </nav>
+  </footer>
+
+  <script src="./assets/js/script.js" type="text/javascript"></script>
+  <script src="app.js" type="text/javascript"></script>
+  <script>
+    toggleNeon = document.getElementById('toggleNeon')
+    Neon = document.getElementById('yap')
+    NeonOn = true
+
+    function NeonState() {
+      if (NeonOn == true) {
+        NeonOn = false
+        Neon.classList.remove('on')
+        Neon.classList.add('of')
+        toggleNeon.classList.remove('toggleOn')
+      }
+      else {
+        NeonOn = true
+        Neon.classList.add('on')
+        Neon.classList.remove('of')
+        toggleNeon.classList.add('toggleOn')
+      }
+    }
+  </script>
+  <script>
+    // effet parallax
+    let past = document.getElementById("past-music");
+    let pres = document.getElementById("music-container");
+    let futu = document.getElementById("futur-music");
+    let test = document.getElementById("container");
+    if (screen.width > 600) {
+      window.addEventListener('scroll', function () {
+        var value = window.scrollY;
+
+        past.style.bottom = value * 1 + 'px';
+        pres.style.top = value * 1.5 + 'px';
+        past.style.bottom = value * 1 + 'px';
+
+        test.style.margin = value * 0.3 + 'px';
+      })
+    }
+  </script>
 </body>
-</html>
+
+</html> 

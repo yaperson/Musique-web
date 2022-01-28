@@ -1,5 +1,5 @@
 const CACHE_NAME = 'offline';
-const OFFLINE_URL = '/musique/offline.html';
+const OFFLINE_URL = 'offline.html';
 
 self.addEventListener('install', function(event) {
   console.log('[ServiceWorker] Install');
@@ -50,3 +50,4 @@ self.addEventListener('fetch', function(event) {
     })());
   }
 });
+

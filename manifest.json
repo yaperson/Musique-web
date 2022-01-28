@@ -1,26 +1,26 @@
 {
     "name": "Une playlist, une semaine",
-    "short_name":"La playlist",
-    "start_url": "/musique/",
+    "short_name":"WeekSong",
+    "start_url": "https://yaperson.alwaysdata.net/musique/",
     "display": "standalone",
-    "scope": "/musique/",
-    "background_color":"white",
-    "theme_color":"white",
+    "scope": "https://yaperson.alwaysdata.net/musique/",
+    "background_color":"#0A1128",
+    "theme_color":"#000000",
     "orientation":"portrait-primary",
     "icons":[
         {
-            "src":"/assets/icons/icon-192.png",
-            "type":"image/png",
+            "src":"/musique/assets/icons/icon-192.png",
+            "type":"image/jpg",
             "sizes":"192x192"
         },
         {
-            "src":"/assets/icons/icon-192.png",
+            "src":"/musique/assets/icons/icon-192.png",
             "type":"image/png",
             "sizes":"192x192",
             "purpose":"any maskable"
         },
         {
-            "src":"/assets/icons/icon-512.png",
+            "src":"/musique/assets/icons/icon-512.png",
             "type":"image/png",
             "sizes":"512x512"
         }

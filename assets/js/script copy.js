@@ -21,37 +21,31 @@ const FutureCover = document.getElementById('FutureCover');
 const PastTitle = document.getElementById('PastTitle');
 const PastCover = document.getElementById('PastCover');
 
-const previewTitle = document.getElementById('previewTitle');
-const previewCover = document.getElementById('previewCover');
-
 let pastmusic = document.getElementById('past-music');
 let futurmusic = document.getElementById('futur-music');
 let curentmusic = document.getElementById('music-container');
-let preview = document.getElementById('preview-container');
 
 /**********************************/
 
 // Titres présents dans la liste de lecture
-const songs = ['euroBite3333','cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
+const songs = ['cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
 
 // Variable
 let songIndex = 0;
-let previewSongIndex = songIndex;
 let FsongIndex = 1;
 let PsongIndex = songs.length - 1;
 let isStoppeed = true;
 let islooping = true;
 
 // Volume
-// volProgress.style.width = `${audio.volume * 100}%`;
+volProgress.style.width = `${audio.volume * 100}%`;
 
 // loop color
-loopBtn.querySelector('i.fas').style.color = '#0AD3FF';
+loopBtn.querySelector('i.fas').style.color = '#00FF00';
 
 const currentSong = songs[songIndex];
 const FutureSong = songs[FsongIndex];
 const PastSong = songs[PsongIndex];
-const previewSong = songs[previewSongIndex];
 
 // chargement des details
 loadSong(currentSong);
@@ -59,7 +53,6 @@ loadSong(currentSong);
 if (screen.width > 600){
 loadFutureSong(FutureSong)
 loadPastSong(PastSong)
-loadPreviewSong(previewSong)
 }
 // Recupere les details du son
 function loadSong(song){
@@ -76,11 +69,6 @@ function loadFutureSong(song){
 function loadPastSong(song){
   PastTitle.innerText = song;
   PastCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
-}
-
-function loadPreviewSong(song){
-  previewTitle.innerText = song;
-  previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 // function playEvent(){
@@ -105,9 +93,9 @@ playBtn.addEventListener('click', playPause);
 stopBtn.addEventListener('click', stopSong);
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-// volDownBtn.addEventListener('click', reduceSongVol);
-// volUpBtn.addEventListener('click', increaseSongVol);
-// volContainer.addEventListener('click', updateVolume);
+volDownBtn.addEventListener('click', reduceSongVol);
+volUpBtn.addEventListener('click', increaseSongVol);
+volContainer.addEventListener('click', updateVolume);
 progressContainer.addEventListener('click', setProgress);
 loopBtn.addEventListener('click', changeLoopState);
 
@@ -124,7 +112,7 @@ function playSong(song){
     cover.alt = song;
   }*/
   changeClasses(playBtn.querySelector('i.fas'),'fa-play','fa-pause');
-  playBtn.querySelector('i.fas').style.color = '#0AD3FF';
+  playBtn.querySelector('i.fas').style.color = '#50F01F';
   changeClasses(player, 'stop', 'play');
   audio.play(); 
 
@@ -167,18 +155,15 @@ function prevSong(){
   songIndex -- ;
   FsongIndex -- ;   //ajout récent
   PsongIndex -- ;   //ajout récent
-  previewSongIndex -- ;   //ajout récent
 
   PsongIndex <  0 ? PsongIndex = songs.length -1 : PsongIndex;  //ajout récent
   FsongIndex <  0 ? FsongIndex = songs.length -1 : FsongIndex;  //ajout récent
   songIndex < 0 ? songIndex = songs.length - 1 : songIndex;
-  previewSongIndex < 0 ? previewSongIndex = songs.length - 1 : previewSongIndex;
   loadSong(songs[songIndex]);
 
   if (screen.width > 600){
   loadFutureSong(songs[FsongIndex]);  //ajout récent
   loadPastSong(songs[PsongIndex]);  //ajout récent
-  loadPreviewSong(songs[previewSongIndex]);  //ajout récent
   }
   
 
@@ -194,10 +179,8 @@ function nextSong(){
 
   PsongIndex ++ ;  //ajout récent
   FsongIndex ++ ;  //ajout récent
-  previewSongIndex ++ ;  //ajout récent
   PsongIndex > songs.length - 1 ? PsongIndex = 0 : PsongIndex;  //ajout récent
   FsongIndex > songs.length - 1 ? FsongIndex = 0 : FsongIndex;  //ajout récent
-  previewSongIndex > songs.length - 1 ? previewSongIndex = 0 : previewSongIndex;  //ajout récent
 
   songIndex > songs.length - 1 ? songIndex = 0 : songIndex;
 
@@ -208,7 +191,6 @@ function nextSong(){
   if (screen.width > 600){
   loadFutureSong(songs[FsongIndex])  // ajout récent
   loadPastSong(songs[PsongIndex]);  //ajout récent
-  loadPreviewSong(songs[previewSongIndex]);  //ajout récent
   }
   //}, 1000);
 
@@ -231,50 +213,50 @@ function setProgress(e){
   }
   //console.log(this.clientWidth, e.offsetX); // affiche la taille de l'element et l'endroit ou on a cliqué
 }
-// // Diminue le volume
-// function reduceSongVol(){
-//   if (audio.volume > .1){
-//     audio.volume -= .1; // le volume max est 1
-//     volProgress.style.width = `${audio.volume * 100}%`;
-//   }
-//   if(audio.volume <= .1){
-//     audio.volume = 0.0;
-//     volProgress.style.width = `0`;
-//     audio.muted = true;
-//     changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-mute');
-//   }
-//   if (audio.volume <= .5){
-//     changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-up', 'fa-volume-down');
-//   }
-// }
-// // Augmente le volume
-// function increaseSongVol(){
-//   if (audio.volume < .9){
-//     audio.muted = false;
-//     audio.volume += .1;
-//     volProgress.style.width = `100%`;
-//     changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-mute', 'fa-volume-down');
-//   }
-//   if (audio.volume > .5){
-//     changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-up');
-//   }
-//   if (audio.volume > .9){
-//     audio.volume = 1.0;
-//   }
-// }
-// // Met a jour le volume par le click de l'utilisateur
-// function updateVolume(e){
-//   const width = this.clientWidth;
-//   const clickX = e.offsetX;
+// Diminue le volume
+function reduceSongVol(){
+  if (audio.volume > .1){
+    audio.volume -= .1; // le volume max est 1
+    volProgress.style.width = `${audio.volume * 100}%`;
+  }
+  if(audio.volume <= .1){
+    audio.volume = 0.0;
+    volProgress.style.width = `0`;
+    audio.muted = true;
+    changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-mute');
+  }
+  if (audio.volume <= .5){
+    changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-up', 'fa-volume-down');
+  }
+}
+// Augmente le volume
+function increaseSongVol(){
+  if (audio.volume < .9){
+    audio.muted = false;
+    audio.volume += .1;
+    volProgress.style.width = `100%`;
+    changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-mute', 'fa-volume-down');
+  }
+  if (audio.volume > .5){
+    changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-up');
+  }
+  if (audio.volume > .9){
+    audio.volume = 1.0;
+  }
+}
+// Met a jour le volume par le click de l'utilisateur
+function updateVolume(e){
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
 
-//   audio.volume = (clickX / width); // calcule le volume par raport au pourcentage de la progress bar volume 
-//   volProgress.style.width = `${audio.volume * 100}%`;
-// }
+  audio.volume = (clickX / width); // calcule le volume par raport au pourcentage de la progress bar volume 
+  volProgress.style.width = `${audio.volume * 100}%`;
+}
 // active la lecture en boucle
 function changeLoopState(){
   islooping === true ? islooping = false : islooping = true;
   if (islooping){
-    loopBtn.querySelector('i.fas').style.color = '#0AD3FF';
+    loopBtn.querySelector('i.fas').style.color = '#50F01F';
   }
   else{
     loopBtn.querySelector('i.fas').style.color = '#000';
