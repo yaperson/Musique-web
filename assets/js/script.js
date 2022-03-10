@@ -39,7 +39,7 @@ let songIndex = 0;
 let previewSongIndex = songIndex;
 let FsongIndex = 1;
 let PsongIndex = songs.length - 1;
-let isStoppeed = true;
+//let isStoppeed = true;
 let islooping = true;
 
 // Volume
@@ -117,19 +117,18 @@ function changeClasses(e, c1, c2){
 }
 
 // lance le son
-function playSong(song){
+//function playSong(song){
   /* Je l'ai enlever car il me posait des problemes, ne pas hésiter a la remetre si besoin
   if(isStoppeed){
     loadSong(song);
     cover.alt = song;
   }*/
-  changeClasses(playBtn.querySelector('i.fas'),'fa-play','fa-pause');
-  playBtn.querySelector('i.fas').style.color = '#0AD3FF';
-  changeClasses(player, 'stop', 'play');
-  audio.play(); 
+//  changeClasses(playBtn.querySelector('i.fas'),'fa-play','fa-pause');
+//  playBtn.querySelector('i.fas').style.color = '#0AD3FF';
+//  changeClasses(player, 'stop', 'play');
+//  audio.play(); 
+//}
 
-  
-}
 // Met en pause
 function pauseSong(){
   player.classList.remove('play');
@@ -283,9 +282,9 @@ function changeLoopState(){
 // Definie la lecture en boucle ou non
 function playLoop(){ 
   if (islooping){ nextSong();}
-  else if(songIndex >= songs.length -1 && islooping){
+  /*else if(songIndex >= songs.length -1 && islooping){
     nextSong();
-  }
+  }*/
   
   else {
     stopSong();
