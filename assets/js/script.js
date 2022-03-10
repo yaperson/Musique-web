@@ -11,8 +11,8 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const progressContainer = document.getElementById('progress-container');
 const progress = document.getElementById('progress');
-const volContainer = document.getElementById('vol-container');
-const volProgress = document.getElementById('vol-progress');
+//const volContainer = document.getElementById('vol-container');
+//const volProgress = document.getElementById('vol-progress');
 
 /***********************************/
 const FutureTitle = document.getElementById('FutureTitle');
