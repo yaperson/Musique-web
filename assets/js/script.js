@@ -23,7 +23,7 @@ const PastCover = document.getElementById('PastCover');
 
 const previewTitle = document.getElementById('previewTitle');
 const previewCover = document.getElementById('previewCover');
-/*
+
 let pastmusic = document.getElementById('past-music');
 let futurmusic = document.getElementById('futur-music');
 let curentmusic = document.getElementById('music-container');
