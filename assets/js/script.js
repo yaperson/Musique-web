@@ -3,14 +3,14 @@ const playBtn = document.getElementById('play');
 const stopBtn = document.getElementById('stop');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
-const volUpBtn = document.getElementById('vol-up');
-const volDownBtn = document.getElementById('vol-down');
 const loopBtn = document.getElementById('loop');
 const audio = document.getElementById('audio');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const progressContainer = document.getElementById('progress-container');
 const progress = document.getElementById('progress');
+//const volDownBtn = document.getElementById('vol-down');
+//const volUpBtn = document.getElementById('vol-up');
 //const volContainer = document.getElementById('vol-container');
 //const volProgress = document.getElementById('vol-progress');
 
