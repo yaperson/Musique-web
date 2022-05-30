@@ -9,10 +9,10 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const progressContainer = document.getElementById('progress-container');
 const progress = document.getElementById('progress');
-//const volDownBtn = document.getElementById('vol-down');
-//const volUpBtn = document.getElementById('vol-up');
-//const volContainer = document.getElementById('vol-container');
-//const volProgress = document.getElementById('vol-progress');
+const volDownBtn = document.getElementById('vol-down');
+const volUpBtn = document.getElementById('vol-up');
+const volContainer = document.getElementById('vol-container');
+const volProgress = document.getElementById('vol-progress');
 
 /***********************************/
 const FutureTitle = document.getElementById('FutureTitle');
@@ -105,9 +105,9 @@ playBtn.addEventListener('click', playPause);
 stopBtn.addEventListener('click', stopSong);
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-// volDownBtn.addEventListener('click', reduceSongVol);
-// volUpBtn.addEventListener('click', increaseSongVol);
-// volContainer.addEventListener('click', updateVolume);
+volDownBtn.addEventListener('click', reduceSongVol);
+volUpBtn.addEventListener('click', increaseSongVol);
+volContainer.addEventListener('click', updateVolume);
 progressContainer.addEventListener('click', setProgress);
 loopBtn.addEventListener('click', changeLoopState);
 
@@ -117,17 +117,17 @@ function changeClasses(e, c1, c2){
 }
 
 // lance le son
-//function playSong(song){
+function playSong(song){
   /* Je l'ai enlever car il me posait des problemes, ne pas hésiter a la remetre si besoin
   if(isStoppeed){
     loadSong(song);
     cover.alt = song;
   }*/
-//  changeClasses(playBtn.querySelector('i.fas'),'fa-play','fa-pause');
-//  playBtn.querySelector('i.fas').style.color = '#0AD3FF';
-//  changeClasses(player, 'stop', 'play');
-//  audio.play(); 
-//}
+ changeClasses(playBtn.querySelector('i.fas'),'fa-play','fa-pause');
+ playBtn.querySelector('i.fas').style.color = '#0AD3FF';
+ changeClasses(player, 'stop', 'play');
+ audio.play(); 
+}
 
 // Met en pause
 function pauseSong(){
@@ -230,45 +230,45 @@ function setProgress(e){
   }
   //console.log(this.clientWidth, e.offsetX); // affiche la taille de l'element et l'endroit ou on a cliqué
 }
-// // Diminue le volume
-// function reduceSongVol(){
-//   if (audio.volume > .1){
-//     audio.volume -= .1; // le volume max est 1
-//     volProgress.style.width = `${audio.volume * 100}%`;
-//   }
-//   if(audio.volume <= .1){
-//     audio.volume = 0.0;
-//     volProgress.style.width = `0`;
-//     audio.muted = true;
-//     changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-mute');
-//   }
-//   if (audio.volume <= .5){
-//     changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-up', 'fa-volume-down');
-//   }
-// }
-// // Augmente le volume
-// function increaseSongVol(){
-//   if (audio.volume < .9){
-//     audio.muted = false;
-//     audio.volume += .1;
-//     volProgress.style.width = `100%`;
-//     changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-mute', 'fa-volume-down');
-//   }
-//   if (audio.volume > .5){
-//     changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-up');
-//   }
-//   if (audio.volume > .9){
-//     audio.volume = 1.0;
-//   }
-// }
-// // Met a jour le volume par le click de l'utilisateur
-// function updateVolume(e){
-//   const width = this.clientWidth;
-//   const clickX = e.offsetX;
+// Diminue le volume
+function reduceSongVol(){
+  if (audio.volume > .1){
+    audio.volume -= .1; // le volume max est 1
+    volProgress.style.width = `${audio.volume * 100}%`;
+  }
+  if(audio.volume <= .1){
+    audio.volume = 0.0;
+    volProgress.style.width = `0`;
+    audio.muted = true;
+    changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-mute');
+  }
+  if (audio.volume <= .5){
+    changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-up', 'fa-volume-down');
+  }
+}
+// Augmente le volume
+function increaseSongVol(){
+  if (audio.volume < .9){
+    audio.muted = false;
+    audio.volume += .1;
+    volProgress.style.width = `100%`;
+    changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-mute', 'fa-volume-down');
+  }
+  if (audio.volume > .5){
+    changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-up');
+  }
+  if (audio.volume > .9){
+    audio.volume = 1.0;
+  }
+}
+// Met a jour le volume par le click de l'utilisateur
+function updateVolume(e){
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
 
-//   audio.volume = (clickX / width); // calcule le volume par raport au pourcentage de la progress bar volume 
-//   volProgress.style.width = `${audio.volume * 100}%`;
-// }
+  audio.volume = (clickX / width); // calcule le volume par raport au pourcentage de la progress bar volume 
+  volProgress.style.width = `${audio.volume * 100}%`;
+}
 // active la lecture en boucle
 function changeLoopState(){
   islooping === true ? islooping = false : islooping = true;

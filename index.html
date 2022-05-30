@@ -92,25 +92,28 @@
             </div>
 
             <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
-          </div>
-          <!-- <div class="vol-bar" id="vol-bar">
-            <button id="vol-down"><i class="fas fa-volume-down"></i></button>
-            <div class="vol-container" id="vol-container">
-              <div class="vol-progress" id="vol-progress"></div>
-            </div>
-            <button id="vol-up"><i class="fas fa-volume-up"></i></button>
-          </div> -->
-          <div class="param-container">
 
-            <!-- Install button, hidden by default -->
-            <div id="installContainer" class="hidden">
-              <button id="butInstall" type="button">
-                Installer
-              </button>
+            <div class="param-container">
+              <!-- Install button, hidden by default -->
+              <div id="installContainer" class="hidden">
+                <button id="butInstall" type="button">
+                  Installer
+                </button>
+              </div>
+              <button id="notifications">Activer les notifications</button>
+              <button class="" id="toggleNeon" onclick="NeonState()"> Titre néon </button>
             </div>
-            <button id="notifications">Activer les notifications</button>
-            <button class="" id="toggleNeon" onclick="NeonState()"> Titre néon </button>
+
+            <div class="vol-bar" id="vol-bar">
+              <button class="player-button" id="vol-down"><i class="fas fa-volume-down"></i></button>
+              <div class="vol-container" id="vol-container">
+                <div class="vol-progress" id="vol-progress"></div>
+              </div>
+              <button class="player-button" id="vol-up"><i class="fas fa-volume-up"></i></button>
+            </div>
           </div>
+          
+          
     </section>
     <section id="liens">
       <h2>Cette semaine :</h2>
