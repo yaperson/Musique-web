@@ -10,6 +10,7 @@ const cover = document.getElementById('cover');
 const progressContainer = document.getElementById('progress-container');
 const progress = document.getElementById('progress');
 const volDownBtn = document.getElementById('vol-down');
+const volUpBtn = document.getElementById('vol-up');
 const volContainer = document.getElementById('vol-container');
 const volProgress = document.getElementById('vol-progress');
 
@@ -22,6 +23,11 @@ const PastCover = document.getElementById('PastCover');
 
 const previewTitle = document.getElementById('previewTitle');
 const previewCover = document.getElementById('previewCover');
+/*
+let pastmusic = document.getElementById('past-music');
+let futurmusic = document.getElementById('futur-music');
+let curentmusic = document.getElementById('music-container');
+let preview = document.getElementById('preview-container');
 
 /**********************************/
 
@@ -77,6 +83,20 @@ function loadPreviewSong(song){
   previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
+// function playEvent(){
+//   // pastmusic.style.animation = 'changeL 1s';
+//   // futurmusic.style.animation = 'changeR 1s';
+//   pastmusic.classList.add('past-music');
+//   futurmusic.classList.add('futur-music');
+//   curentmusic.classList.add('music-container');
+//     setTimeout(function(){
+//     pastmusic.classList.remove('past-music');
+//     futurmusic.classList.remove('futur-music');
+//     curentmusic.classList.remove('music-container');
+//   }, 1000);
+
+// }
+
 // Liste des événement du DOM
 audio.addEventListener('error' ,  audioError);
 audio.addEventListener('timeupdate', updateProgressBar);
@@ -85,7 +105,9 @@ playBtn.addEventListener('click', playPause);
 stopBtn.addEventListener('click', stopSong);
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+// volDownBtn.addEventListener('click', reduceSongVol);
 volDownBtn.addEventListener('click', muteSong); // mute le son
+volUpBtn.addEventListener('click', increaseSongVol);
 volContainer.addEventListener('click', updateVolume);
 progressContainer.addEventListener('click', setProgress);
 loopBtn.addEventListener('click', changeLoopState);
@@ -97,6 +119,11 @@ function changeClasses(e, c1, c2){
 
 // lance le son
 function playSong(song){
+  /* Je l'ai enlever car il me posait des problemes, ne pas hésiter a la remetre si besoin
+  if(isStoppeed){
+    loadSong(song);
+    cover.alt = song;
+  }*/
  changeClasses(playBtn.querySelector('i.fas'),'fa-play','fa-pause');
  playBtn.querySelector('i.fas').style.color = '#0AD3FF';
  changeClasses(player, 'stop', 'play');
@@ -125,6 +152,14 @@ function stopSong(){
 function playPause (){
   const isPlaying = player.classList.contains('play');
   isPlaying ? pauseSong() : playSong(currentSong); // résume ce qui est en dessous
+  /*
+  if(isPlaying){
+    pauseSong();
+  }
+  else{
+    playSong();
+  }
+  */ 
 }
 // Precedent
 function prevSong(){
@@ -152,6 +187,9 @@ function prevSong(){
 // Suivant
 function nextSong(){
   stopSong();
+
+  //playEvent();
+
   songIndex ++ ;
 
   PsongIndex ++ ;  //ajout récent
@@ -172,6 +210,7 @@ function nextSong(){
   loadPastSong(songs[PsongIndex]);  //ajout récent
   loadPreviewSong(songs[previewSongIndex]);  //ajout récent
   }
+  //}, 1000);
 
   playSong(songs[songIndex]);
 
@@ -181,6 +220,7 @@ function updateProgressBar(e){
   const {duration, currentTime} = e.target;
   const progressPersent = (currentTime / duration) * 100; // calcul de la progression
   progress.style.width = `${progressPersent}%`;
+  //console.log( e.target); // e.targer recupere le son et le console.log l'affiche dans la console 
 }
 // Met a jour la bar en fonction du click 
 function setProgress(e){
@@ -189,24 +229,56 @@ function setProgress(e){
   if(!player.classList.contains('stop')){
     audio.currentTime = (clickX / width) * audio.duration // calcul pour jouer le son en fonction de l'endroit ou on click su la progress bar
   }
+  //console.log(this.clientWidth, e.offsetX); // affiche la taille de l'element et l'endroit ou on a cliqué
+}
+// Diminue le volume
+function reduceSongVol(){
+  if (audio.volume > .1){
+    audio.volume -= .1; // le volume max est 1
+    volProgress.style.width = `${audio.volume * 100}%`;
+  }
+  if(audio.volume <= .1){
+    audio.volume = 0.0;
+    volProgress.style.width = `0`;
+    audio.muted = true;
+    changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-mute');
+  }
+  if (audio.volume <= .5){
+    changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-up', 'fa-volume-down');
+  }
+}
+// Augmente le volume
+function increaseSongVol(){
+  if (audio.volume < .9){
+    audio.muted = false;
+    volProgress.style.width = `${audio.volume * 100}%`;
+    audio.volume += .1;
+    changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-mute', 'fa-volume-down');
+  }
+  if (audio.volume > .5){
+    changeClasses(volUpBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-up');
+  }
+  if (audio.volume > .9){
+    audio.volume = 1.0;
+    volProgress.style.width = `100`;
+  }
 }
 
 // TODO : mute le son
-let state = 0;
+audio.mute = false;
 
 function muteSong(){
-  switch (state) {
-    case 0: 
-      state = 1;
-      audio.muted = true; 
-      changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-mute');
-      break;
-    case 1:
-      state = 0;
-      audio.muted = false;
-      changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-mute', 'fa-volume-down');
-      break;
-    }
+
+  if(audio.mute = false){
+  audio.mute = true;
+  volProgress.style.width = `0`;
+  changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-down', 'fa-volume-mute');
+  } else { 
+  audio.mute = false;
+  volProgress.style.width = `${audio.volume * 100}%`;
+  changeClasses(volDownBtn.querySelector('i.fas'), 'fa-volume-mute', 'fa-volume-down');
+  }
+
 }
 
 
@@ -231,10 +303,15 @@ function changeLoopState(){
 // Definie la lecture en boucle ou non
 function playLoop(){ 
   if (islooping){ nextSong();}
+  /*else if(songIndex >= songs.length -1 && islooping){
+    nextSong();
+  }*/
+  
   else {
     stopSong();
   }
 }
+
 
 // Renvoi une erreur si le son n'est pas trouvé
 function audioError(){

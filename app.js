@@ -78,7 +78,7 @@ button.addEventListener('click', function(e) {
 
 function randomNotification() {
     var notifTitle = 'News weekSong.';
-    var notifBody = 'Nouvelle interface et 1 nouveaux morceaux !';
+    var notifBody = 'Version 1.2.1 is available. Change your volume level !';
     var notifImg = 'assets/icons/icon.ico';
     var options = {
         body: notifBody,
