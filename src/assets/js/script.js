@@ -30,22 +30,20 @@ const previewCover = document.getElementById('previewCover');
 
 // Titres présents dans la liste de lecture
 // const songs = ['guitaredelireStreaming','euroBite3333','cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
-
+let songs = [];
 // Titres récupérés grace a l'api
 let data = await musicRepertory.musicList()
-console.log(data)
-for (let item of data) {
-    createReportItem.call(this, item)
-
+console.log(data);
+for (let item of data.musicList) {
+  songs = item;
 }
 
-const songs = JSON.stringify()
 // Variable
 let songIndex = 0;
 let previewSongIndex = songIndex;
 let FsongIndex = 1;
 let PsongIndex = songs.length - 1;
-//let isStoppeed = true;
+let isStoppeed = true;
 let islooping = true;
 
 // Volume
@@ -70,23 +68,28 @@ loadPreviewSong(previewSong)
 // Recupere les details du son
 function loadSong(song){
   title.innerText = song;
-  audio.src = `/../../../music/${song}.mp3`;
-  cover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  audio.src = `./assets/music/${song}`;
+  // audio.src = `/../../../music/${song}.mp3`;
+  cover.src = `./assets/img/NoImage.png`;
+  // cover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadFutureSong(song){
   FutureTitle.innerText = song;
-  FutureCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  FutureCover.src = `./assets/img/NoImage.png`;
+  // FutureCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPastSong(song){
   PastTitle.innerText = song;
-  PastCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  PastCover.src = `./assets/img/NoImage.png`;
+  // PastCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPreviewSong(song){
   previewTitle.innerText = song;
-  previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  previewCover.src = `./assets/img/NoImage.png`;
+  // previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 // Liste des événement du DOM

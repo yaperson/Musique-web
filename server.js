@@ -2,12 +2,14 @@ const path = require('path');
 const fs = require('fs');
 const directoryPath = path.join(__dirname, './music');
 const bodyParser = require("body-parser");
+var cors = require('cors')
 const express = require('express')
 const host = '127.0.0.1';
 const port = 3900;
 
 let app = express()
 
+app.use(cors())
 app.use(express.static(path.resolve(__dirname, "src")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,12 +33,23 @@ app.get('/music/musicRepertory', function (req, res) {
             return console.log('Unable to scan directory: ' + err);
         }
 
+        let musics = {
+            musicList: [
+                files
+            ]
+        }
+
         // listing all files using forEach
-        files.forEach(function (file) {
+        // files.forEach(function (file) {
             // Do whatever you want to do with the file
-            console.log(file);
-            
-        });
-        res.send({music : files});
+
+            // musics = {
+            //     musicName : file 
+            // }
+            // console.log(musics)
+        // });
+        console.log(musics)
+
+        res.send(musics);
     });
 });
