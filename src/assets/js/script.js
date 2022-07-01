@@ -1,3 +1,6 @@
+
+import musicRepertory from '../../services/music.js'
+
 const player = document.getElementById('player');
 const playBtn = document.getElementById('play');
 const stopBtn = document.getElementById('stop');
@@ -26,8 +29,17 @@ const previewCover = document.getElementById('previewCover');
 /**********************************/
 
 // Titres présents dans la liste de lecture
-const songs = ['guitaredelireStreaming','euroBite3333','cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
+// const songs = ['guitaredelireStreaming','euroBite3333','cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
 
+// Titres récupérés grace a l'api
+let data = await musicRepertory.musicList()
+console.log(data)
+for (let item of data) {
+    createReportItem.call(this, item)
+
+}
+
+const songs = JSON.stringify()
 // Variable
 let songIndex = 0;
 let previewSongIndex = songIndex;
@@ -58,7 +70,7 @@ loadPreviewSong(previewSong)
 // Recupere les details du son
 function loadSong(song){
   title.innerText = song;
-  audio.src = `./assets/music/${song}.mp3`;
+  audio.src = `/../../../music/${song}.mp3`;
   cover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 

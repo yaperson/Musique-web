@@ -1,2 +1,4 @@
-/assets/music
-/assets/img
+/music
+/node_modules
+/src/assets/music
+/src/assets/img
