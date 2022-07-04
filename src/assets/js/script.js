@@ -68,7 +68,8 @@ loadPreviewSong(previewSong)
 // Recupere les details du son
 function loadSong(song){
   title.innerText = song;
-  audio.src = `./assets/music/${song}`;
+  audio.src = `./music/${song}`;
+  console.log(audio.src)
   // audio.src = `/../../../music/${song}.mp3`;
   cover.src = `./assets/img/NoImage.png`;
   // cover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
