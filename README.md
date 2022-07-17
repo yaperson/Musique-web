@@ -10,7 +10,7 @@ Une PWA mélodieuse ;)
     lancer [`npm start`](https://www.npmjs.com/start) ou [`node server`]
 
 
-### Objectif : API
+## Objectif : API
 
 La première version de WeekSong est completement statique, il était donc compliqué d'ajouter des nouveau morceaux.
 
@@ -25,3 +25,9 @@ Pour palier a ce problème, l'idée d'une API m'est venu en tête. Le principe e
 Grace à cette méthode, il sufit de mettre un morceau dans ce répertoir, et il sera automatiquement ajouté à la liste.
 <br>
 L'objectif est maintenant de faire la même chose pour les images et faire en sorte de pouvoir ajouter des morceau et leur images grace a une interface d'administration.
+
+### Fonctionnement de l'API
+
+API rest fonctionnant avec Node.js (express, fs, body-parser).
+
+ - GET /music/musicRepertory : récupère la liste des morceaux
