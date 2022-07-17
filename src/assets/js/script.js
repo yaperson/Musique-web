@@ -258,7 +258,7 @@ function audioError(){
 }
 
 
-// Test toutch event
+// Test touch event
 // TODO 
 
 document.addEventListener('touchstart', function(e){
