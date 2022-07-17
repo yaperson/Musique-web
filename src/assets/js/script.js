@@ -77,19 +77,19 @@ function loadSong(song){
 
 function loadFutureSong(song){
   FutureTitle.innerText = song;
-  FutureCover.src = `./assets/img/NoImage.png`;
+  FutureCover.src = `./assets/img/noCover.svg`;
   // FutureCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPastSong(song){
   PastTitle.innerText = song;
-  PastCover.src = `./assets/img/NoImage.png`;
+  PastCover.src = `./assets/img/noCover.svg`;
   // PastCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPreviewSong(song){
   previewTitle.innerText = song;
-  previewCover.src = `./assets/img/NoImage.png`;
+  previewCover.src = `./assets/img/noCover.svg`;
   // previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
@@ -265,4 +265,8 @@ document.addEventListener('touchstart', function(e){
   if (e.target === cover) {
     playPause();
   }
+})
+
+document.addEventListener('touchmove', function(e){
+  console.log(e);
 })
