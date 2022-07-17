@@ -32,6 +32,8 @@ L'objectif est maintenant de faire la même chose pour les images et faire en so
 API rest fonctionnant avec Node.js (express, fs, body-parser).
 
  - GET /music/musicRepertory : récupère la liste des morceaux
+--------------------------------------------------------------------------------------------------------------------
+<br>
 
 ## Deux mots sur l'addaptation au mobiles
 
