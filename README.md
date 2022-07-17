@@ -1,6 +1,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/yaperson/musique-web/badge)](https://www.codefactor.io/repository/github/yaperson/musique-web)
 
-Version 2.0
+Version 2.0 - version en ligne 1.2.1
 # Musique-web 
 Une PWA mélodieuse ;)
 
