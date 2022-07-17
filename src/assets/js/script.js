@@ -71,7 +71,7 @@ function loadSong(song){
   audio.src = `./music/${song}`;
   console.log(audio.src)
   // audio.src = `/../../../music/${song}.mp3`;
-  cover.src = `./assets/img/NoImage.png`;
+  cover.src = `./assets/img/noCover.svg`;
   // cover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
@@ -258,3 +258,11 @@ function audioError(){
 }
 
 
+// Test toutch event
+
+document.addEventListener('touchstart', function(e){
+  console.log(e.target);
+  if (e.target === cover) {
+    playPause();
+  }
+})
