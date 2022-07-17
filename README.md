@@ -32,3 +32,9 @@ L'objectif est maintenant de faire la même chose pour les images et faire en so
 API rest fonctionnant avec Node.js (express, fs, body-parser).
 
  - GET /music/musicRepertory : récupère la liste des morceaux
+
+## Deux mots sur l'addaptation au mobiles
+
+L'objectif est de rendre la PWA 100% compatible avec les mobiles, de tout faire pour la faire ressembler a une native application.
+<br>
+Objectif qui parait simple mais qui s'avère plus complexe que prévu. Il faut prendre en compte tous les evenement qui peuvent arriver dans une application mobile (swipe, touchevent). Je commence a peine a prendre en compte ces point au quels je n'avais pas pensé, ils arrivent donc tard dans le developpement de la PWA.
