@@ -1,11 +1,13 @@
 const path = require('path');
 const fs = require('fs');
-const directoryPath = path.join(__dirname, './src/music');
 const bodyParser = require("body-parser");
 var cors = require('cors')
 const express = require('express')
 const host = '127.0.0.1';
 const port = 3900;
+
+const musicDirectoryPath = path.join(__dirname, './src/music');
+const coverDirectoryPath = path.join(__dirname, './src/cover');
 
 let app = express()
 
@@ -27,7 +29,7 @@ app.listen(port, host, () => {
 
 app.get('/music/musicRepertory', function (req, res) {
     // passsing directoryPath and callback function
-    fs.readdir(directoryPath, function (err, files) {
+    fs.readdir(musicDirectoryPath, function (err, files) {
         // handling error
         if (err) {
             return console.log('Unable to scan directory: ' + err);

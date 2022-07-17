@@ -404,7 +404,7 @@ button {
 */
 .bar-container {
   position: absolute;
-  width: 357px;
+  width: 357px; /* à essayer : 512px centrée */
   height: 8px;
   left: 130px;
   margin-top: 15px;
