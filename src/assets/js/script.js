@@ -1,3 +1,6 @@
+
+import musicRepertory from '../../services/music.js'
+
 const player = document.getElementById('player');
 const playBtn = document.getElementById('play');
 const stopBtn = document.getElementById('stop');
@@ -26,14 +29,21 @@ const previewCover = document.getElementById('previewCover');
 /**********************************/
 
 // Titres présents dans la liste de lecture
-const songs = ['guitaredelireStreaming','euroBite3333','cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
+// const songs = ['guitaredelireStreaming','euroBite3333','cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
+let songs = [];
+// Titres récupérés grace a l'api
+let data = await musicRepertory.musicList()
+console.log(data);
+for (let item of data.musicList) {
+  songs = item;
+}
 
 // Variable
 let songIndex = 0;
 let previewSongIndex = songIndex;
 let FsongIndex = 1;
 let PsongIndex = songs.length - 1;
-//let isStoppeed = true;
+let isStoppeed = true;
 let islooping = true;
 
 // Volume
@@ -58,23 +68,29 @@ loadPreviewSong(previewSong)
 // Recupere les details du son
 function loadSong(song){
   title.innerText = song;
-  audio.src = `./assets/music/${song}.mp3`;
-  cover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  audio.src = `./music/${song}`;
+  console.log(audio.src)
+  // audio.src = `/../../../music/${song}.mp3`;
+  cover.src = `./assets/img/noCover.svg`;
+  // cover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadFutureSong(song){
   FutureTitle.innerText = song;
-  FutureCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  FutureCover.src = `./assets/img/noCover.svg`;
+  // FutureCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPastSong(song){
   PastTitle.innerText = song;
-  PastCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  PastCover.src = `./assets/img/noCover.svg`;
+  // PastCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPreviewSong(song){
   previewTitle.innerText = song;
-  previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
+  previewCover.src = `./assets/img/noCover.svg`;
+  // previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 // Liste des événement du DOM
@@ -242,3 +258,15 @@ function audioError(){
 }
 
 
+// Test toutch event
+
+document.addEventListener('touchstart', function(e){
+  console.log(e.target);
+  if (e.target === cover) {
+    playPause();
+  }
+})
+
+document.addEventListener('touchmove', function(e){
+  console.log(e);
+})

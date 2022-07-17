@@ -17,6 +17,11 @@
 
     gtag('config', 'GA_MEASUREMENT_ID');
   </script>
+  <!-- SCRIPT -->
+  <script src="./assets/js/script.js"  type="module" defer></script>
+  <script src="app.js" type="text/javascript"></script>
+  <script src="/assets/js/effect.js" defer></script>
+
   <!--        PWA         -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="black">
@@ -44,7 +49,7 @@
           <div class="music-info">
             <h4 id="PastTitle"> Yaperson-Lof1 </h4>
           </div>
-          <img src="./assets/img/2-yaperson.jpg" alt="PastCover yaperson" id="PastCover">
+          <img src="/assets/img/2-yaperson.jpg" alt="PastCover yaperson" id="PastCover">
         </div>
 
         <div id="music-container">
@@ -53,9 +58,9 @@
               <h4 id="title"> Yaperson-Lof1 </h4>
             </div>
             <div class="img-container">
-              <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="cover">
+              <img src="/assets/img/2-yaperson.jpg" alt="cover yaperson" id="cover">
             </div>
-            <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
+            <audio src="/../music/2-yaperson.mp3" id="audio"></audio>
           </div>
         </div>
 
@@ -63,7 +68,7 @@
           <div class="music-info">
             <h4 id="FutureTitle"> Yaperson-Lof1 </h4>
           </div>
-          <img src="./assets/img/2-yaperson.jpg" alt="FutureCover yaperson" id="FutureCover">
+          <img src="/assets/img/2-yaperson.jpg" alt="FutureCover yaperson" id="FutureCover">
         </div>
 
         <div class="control-panel">
@@ -73,7 +78,7 @@
                 <h4 id="previewTitle"> Yaperson-Lof1 </h4>
               </div>
               <div class="img-container-preview">
-                <img src="./assets/img/2-yaperson.jpg" alt="cover yaperson" id="previewCover" >
+                <img src="/assets/img/2-yaperson.jpg" alt="cover yaperson" id="previewCover" >
               </div>
             </div>
 
@@ -91,7 +96,7 @@
               <button class="player-button" id="loop" class="loop"><i class="fas fa-redo"></i></button>
             </div>
 
-            <audio src="./assets/music/2-yaperson.mp3" id="audio"></audio>
+            <audio src="/../music/2-yaperson.mp3" id="audio"></audio>
 
             <div class="param-container">
               <!-- Install button, hidden by default -->
@@ -146,46 +151,7 @@
     </nav>
   </footer>
 
-  <script src="./assets/js/script.js" type="text/javascript"></script>
-  <script src="app.js" type="text/javascript"></script>
-  <script>
-    toggleNeon = document.getElementById('toggleNeon')
-    Neon = document.getElementById('yap')
-    NeonOn = true
 
-    function NeonState() {
-      if (NeonOn == true) {
-        NeonOn = false
-        Neon.classList.remove('on')
-        Neon.classList.add('of')
-        toggleNeon.classList.remove('toggleOn')
-      }
-      else {
-        NeonOn = true
-        Neon.classList.add('on')
-        Neon.classList.remove('of')
-        toggleNeon.classList.add('toggleOn')
-      }
-    }
-  </script>
-  <script>
-    // effet parallax
-    let past = document.getElementById("past-music");
-    let pres = document.getElementById("music-container");
-    let futu = document.getElementById("futur-music");
-    let test = document.getElementById("container");
-    if (screen.width > 600) {
-      window.addEventListener('scroll', function () {
-        var value = window.scrollY;
-
-        past.style.bottom = value * 1 + 'px';
-        pres.style.top = value * 1.5 + 'px';
-        past.style.bottom = value * 1 + 'px';
-
-        test.style.margin = value * 0.3 + 'px';
-      })
-    }
-  </script>
 </body>
 
 </html> 
