@@ -17,15 +17,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // SERVER
-// app.listen( process.env.PORT,
-//             process.env.IP,() => {
-//             console.log(`Server is runing on http://${process.env.IP}:${process.env.PORT}`);
-// })
+app.listen( process.env.PORT,
+            process.env.IP,() => {
+            console.log(`Server is runing on http://${process.env.IP}:${process.env.PORT}`);
+})
 
 // LOCAL
-app.listen(port, host, () => {
-    console.log(`Server is runing on http://${host}:${port}`)
-})
+// app.listen(port, host, () => {
+//     console.log(`Server is runing on http://${host}:${port}`)
+// })
 
 app.get('/music/musicRepertory', function (req, res) {
     // passsing directoryPath and callback function
