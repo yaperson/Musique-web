@@ -225,7 +225,6 @@ function muteSong(){
     }
 }
 
-
 // Met a jour le volume par le click de l'utilisateur
 function updateVolume(e){
   const width = this.clientWidth;
@@ -234,6 +233,17 @@ function updateVolume(e){
   audio.volume = (clickX / width); // calcule le volume par raport au pourcentage de la progress bar volume 
   volProgress.style.width = `${audio.volume * 100}%`;
 }
+
+function volumeUp() {
+  audio.volume += 0.1;
+  volProgress.style.width = `${audio.volume * 100}%`;
+}
+
+function volumeDown() {
+  audio.volume -= 0.1;
+  volProgress.style.width = `${audio.volume * 100}%`;
+}
+
 // active la lecture en boucle
 function changeLoopState(){
   islooping === true ? islooping = false : islooping = true;
