@@ -287,7 +287,7 @@ function audioError(){
       case 40:  // down
         volumeDown();
         break;
-      case 70:  // f
+      case 109:  // f
         muteSong();
         break;
       default:
