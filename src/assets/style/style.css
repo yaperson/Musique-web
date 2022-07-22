@@ -142,6 +142,7 @@ img {
   line-height: 28px;
 
   color: #252525;
+  width: 256px;
 }
 
 ::-webkit-scrollbar {

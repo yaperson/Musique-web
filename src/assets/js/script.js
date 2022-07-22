@@ -258,6 +258,35 @@ function audioError(){
 }
 
 
+// assignation des touches du clavier
+
+  document.addEventListener('keydown', function(e){
+    switch (e.keyCode) {
+      case 32:  // space
+        playPause();
+        break;
+      case 37:  // left
+        prevSong();
+        break;
+      case 39:  // right
+        nextSong();
+        break;
+      case 38:  // up
+        volumeUp();
+        break;
+      case 40:  // down
+        volumeDown();
+        break;
+      case 70:  // f
+        muteSong();
+        break;
+      default:
+        break;
+    }
+  })
+
+
+
 // Test touch event
 // TODO 
 
@@ -318,4 +347,4 @@ function handleTouchMove(evt) {
     /* reset values */
     xDown = null;
     yDown = null;                                             
-};
+}
