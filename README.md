@@ -1,6 +1,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/yaperson/musique-web/badge)](https://www.codefactor.io/repository/github/yaperson/musique-web)
 
-Version 2.0 - version en ligne 1.2.1
+Version 2.1 - version en ligne 2.0
 # Musique-web 
 Une PWA mélodieuse ;)
 
@@ -40,3 +40,7 @@ API rest fonctionnant avec Node.js (express, fs, body-parser).
 L'objectif est de rendre la PWA 100% compatible avec les mobiles, de tout faire pour la faire ressembler a une native application.
 <br>
 Objectif qui parait simple mais qui s'avère plus complexe que prévu. Il faut prendre en compte tous les evenement qui peuvent arriver dans une application mobile (swipe, touchevent). Je commence a peine a prendre en compte ces point au quels je n'avais pas pensé, ils arrivent donc tard dans le developpement de la PWA.
+
+# Dernières fonctionnalitées 
+    - Compatibilité avec les mobile et optimisation du swipe
+    - Assignation des touches clavier sur pc (play avec la barre d'espace, suivant ou précédent avec les flêches)
