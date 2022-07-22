@@ -295,8 +295,12 @@ function handleTouchMove(evt) {
 
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
-                                                                         
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+                           
+    console.log("xDiff -> " + xDiff + " | yDiff -> " + yDiff+15)
+    
+
+    if (Math.abs( xDiff ) > Math.abs( yDiff+15)) {/*most significant*/
+
         if ( xDiff > 0 ) {
             /* right swipe */ 
             console.log("right swipe : next song")
