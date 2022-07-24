@@ -335,7 +335,7 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
                            
-    if (Math.abs( xDiff ) > Math.abs( yDiff+15)) {/*most significant -> ajout de ma part, +15 pour avoir moins de sensibilité au swipe*/
+    if (Math.abs( xDiff ) > Math.abs( yDiff+13)) {/*most significant -> ajout de ma part, +15 pour avoir moins de sensibilité au swipe*/
 
         if ( xDiff > 0 ) {
             /* right swipe */ 

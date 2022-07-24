@@ -1,9 +1,9 @@
 {
     "name": "Une playlist, une semaine",
     "short_name":"WeekSong",
-    "start_url": "https://yaperson.alwaysdata.net/musique/",
+    "start_url": "https://yaperson.alwaysdata.net/src/",
     "display": "standalone",
-    "scope": "https://yaperson.alwaysdata.net/musique/",
+    "scope": "https://yaperson.alwaysdata.net/src/",
     "background_color":"#0A1128",
     "theme_color":"#000000",
     "orientation":"portrait-primary",
