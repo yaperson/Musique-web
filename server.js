@@ -28,9 +28,7 @@ app.listen(port, host, () => {
 })
 
 app.get('/music/musicRepertory', function (req, res) {
-    // passsing directoryPath and callback function
     fs.readdir(musicDirectoryPath, function (err, files) {
-        // handling error
         if (err) {
             return console.log('Unable to scan directory: ' + err);
         }

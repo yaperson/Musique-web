@@ -16,7 +16,6 @@ const volDownBtn = document.getElementById('vol-down');
 const volContainer = document.getElementById('vol-container');
 const volProgress = document.getElementById('vol-progress');
 
-/***********************************/
 const FutureTitle = document.getElementById('FutureTitle');
 const FutureCover = document.getElementById('FutureCover');
 
@@ -25,8 +24,6 @@ const PastCover = document.getElementById('PastCover');
 
 const previewTitle = document.getElementById('previewTitle');
 const previewCover = document.getElementById('previewCover');
-
-/**********************************/
 
 // Titres présents dans la liste de lecture
 // const songs = ['guitaredelireStreaming','euroBite3333','cc','instru1','girlgirlgirl remix v1','tzrep-yaperson', 'gtrstl-2' ,'pasDeTitre-yaperson','2-yaperson', 'lof1-yaperson','lofi160bpm-yaperson','upsilon-yaperson'];
@@ -61,13 +58,16 @@ const previewSong = songs[previewSongIndex];
 loadSong(currentSong);
 
 if (screen.width > 600){
-loadFutureSong(FutureSong)
-loadPastSong(PastSong)
-loadPreviewSong(previewSong)
+  loadFutureSong(FutureSong)
+  loadPastSong(PastSong)
+  loadPreviewSong(previewSong)
 }
+
 // Recupere les details du son
 function loadSong(song){
-  title.innerText = song;
+  let songTilte = song.split('.');
+  
+  title.innerText = songTilte[0];
   audio.src = `./music/${song}`;
   console.log(audio.src)
   // audio.src = `/../../../music/${song}.mp3`;
@@ -76,19 +76,25 @@ function loadSong(song){
 }
 
 function loadFutureSong(song){
-  FutureTitle.innerText = song;
+  let songTilte = song.split('.');
+
+  FutureTitle.innerText = songTilte[0];
   FutureCover.src = `./assets/img/noCover.svg`;
   // FutureCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPastSong(song){
-  PastTitle.innerText = song;
+  let songTilte = song.split('.');
+
+  PastTitle.innerText = songTilte[0];
   PastCover.src = `./assets/img/noCover.svg`;
   // PastCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
 
 function loadPreviewSong(song){
-  previewTitle.innerText = song;
+  let songTilte = song.split('.');
+
+  previewTitle.innerText = songTilte[0];
   previewCover.src = `./assets/img/noCover.svg`;
   // previewCover.src = `./assets/img/${song}.jpg` || `./assets/img/NoImage.png`;
 }
@@ -118,7 +124,6 @@ function playSong(song){
  changeClasses(player, 'stop', 'play');
  audio.play(); 
 }
-
 // Met en pause
 function pauseSong(){
   player.classList.remove('play');
@@ -209,7 +214,6 @@ function setProgress(e){
 
 // TODO : mute le son
 let state = 0;
-
 function muteSong(){
   switch (state) {
     case 0: 
@@ -224,7 +228,6 @@ function muteSong(){
       break;
     }
 }
-
 // Met a jour le volume par le click de l'utilisateur
 function updateVolume(e){
   const width = this.clientWidth;
@@ -233,17 +236,14 @@ function updateVolume(e){
   audio.volume = (clickX / width); // calcule le volume par raport au pourcentage de la progress bar volume 
   volProgress.style.width = `${audio.volume * 100}%`;
 }
-
 function volumeUp() {
   audio.volume += 0.1;
   volProgress.style.width = `${audio.volume * 100}%`;
 }
-
 function volumeDown() {
   audio.volume -= 0.1;
   volProgress.style.width = `${audio.volume * 100}%`;
 }
-
 // active la lecture en boucle
 function changeLoopState(){
   islooping === true ? islooping = false : islooping = true;
@@ -261,7 +261,6 @@ function playLoop(){
     stopSong();
   }
 }
-
 // Renvoi une erreur si le son n'est pas trouvé
 function audioError(){
   title.innerText = "Erreur lors du chargement";
@@ -300,12 +299,12 @@ function audioError(){
 // Test touch event
 // TODO 
 
-document.addEventListener('touchstart', function(e){
-  console.log(e.target);
-  if (e.target === cover) {
-    playPause();
-  }
-})
+// document.addEventListener('touchstart', function(e){
+//   console.log(e.target);
+//   if (e.target === cover) {
+//     playPause();
+//   }
+// })
 
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);

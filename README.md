@@ -8,6 +8,9 @@ Une PWA mélodieuse ;)
     
     installer [`npm install`](https://www.npmjs.com/install)
 
+    modifier l'url qui appel l'API dans le fichier /src/services/music.js 
+    modifier les variables dans le fichier server.js
+
     lancer [`npm start`](https://www.npmjs.com/start) ou [`node server`]
 
 
